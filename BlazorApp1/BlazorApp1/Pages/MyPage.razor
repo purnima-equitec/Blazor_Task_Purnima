@@ -1,0 +1,55 @@
+﻿@page "/mypage"
+@using BlazorApp1.Models;
+@inject BlazorApp1.Data.MyService MyService
+
+<h3>My Page</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>Name</th>
+            <th>Designation</th>
+            <th>Salary</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Skills</th>
+        </tr>
+    </thead>
+    <tbody>
+         @if (Employees != null)
+        {
+            @foreach (var employee in Employees)
+            {
+                <tr>
+                    <td>@employee.Empid</td>
+                    <td>@employee.Empname</td>
+                    <td>@employee.EmpDesignation</td>
+                    <td>@employee.EmpSalary</td>
+                    <td>@employee.EmpGender</td>
+                    <td>@employee.EmpEmail</td>
+                    <td>@employee.EmpAge</td>
+                    <td>@employee.EmpSkills</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+
+@code {
+    private List<Employee> Employees;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            Employees = await MyService.GetEmployeesAsync();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error fetching employees: {ex.Message}");
+        }
+    }
+}
