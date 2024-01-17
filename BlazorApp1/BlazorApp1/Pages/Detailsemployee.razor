@@ -1,0 +1,22 @@
+﻿@page "/detailsemployee/{id:int}"
+@using BlazorApp1.Models
+@inject BlazorApp1.Data.MyService MyService
+@inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager
+
+<h3>Employee Details</h3>
+@if (Employee != null)
+{
+    <p>Employee ID: @Employee.EMPID</p>
+    <p>Employee Name: @Employee.EMPNAME</p>
+    <p>Employee Designation: @Employee.EMP_DESIGNATION</p>
+    <p>Employee Salary: @Employee.EMP_SALARY</p>
+    <p>Employee Gender: @Employee.EMP_GENDER</p>
+    <p>Employee Email: @Employee.EMP_EMAIL</p>
+    <p>Employee Age: @Employee.EMP_AGE</p>
+    <p>Employee Skills: @Employee.EMP_SKILLS</p>
+}
+else
+{
+    <p>No employee details found.</p>
+}
+

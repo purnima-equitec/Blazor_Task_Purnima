@@ -188,7 +188,6 @@ namespace BlazorApp1.Models
                 parameterreturnValue,
             };
             var _ = await _context.SqlQueryAsync<EmployeeViewByIDResult>("EXEC @returnValue = [dbo].[EmployeeViewByID] @EMPID", sqlParameters, cancellationToken);
-
             returnValue?.SetValue(parameterreturnValue.Value);
 
             return _;

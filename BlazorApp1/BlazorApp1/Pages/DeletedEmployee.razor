@@ -1,15 +1,12 @@
-﻿@page "/mypage"
+﻿@page "/deletedemployee"
 @using BlazorApp1.Models;
 @inject BlazorApp1.Data.MyService MyService
 @inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager
 
-<h3>My Page</h3>
-<button @onclick="NavigateToInsertEmployee" class="btn btn-success">Add Employee</button>
-<button @onclick="NavigateToDeletedEmployee" class="btn btn-success">Deleted Employee</button>
+<h3>DeletedEmployee</h3>
 <table class="table">
     <thead>
         <tr>
-            @*<th>EmployeeID</th>*@
             <th>Name</th>
             <th>Designation</th>
             <th>Salary</th>
@@ -20,12 +17,11 @@
         </tr>
     </thead>
     <tbody>
-         @if (Employees != null)
+        @if (Employees != null)
         {
             @foreach (var employee in Employees)
             {
                 <tr>
-                    @*<td>@employee.Empid</td>*@
                     <td>@employee.Empname</td>
                     <td>@employee.EmpDesignation</td>
                     <td>@employee.EmpSalary</td>
@@ -33,14 +29,13 @@
                     <td>@employee.EmpEmail</td>
                     <td>@employee.EmpAge</td>
                     <td>@employee.EmpSkills</td>
-                    <td class="btn-group">
-                        <button @onclick="() => EditClick(employee.Empid)" class="btn  btn-outline-primary">Edit</button>
-                        <button @onclick="() => NavigateToDetailsEmployee(employee.Empid)" class="btn  btn-outline-primary">Display</button>
-                        <button @onclick="() => DeleteEmployee(employee.Empid)" class="btn btn-outline-primary">Delete</button>
+                    <td class="btn">
+                        <button @onclick="() => RestoreEmployee(employee)" class="btn btn-outline-primary">Restore</button>                   
                     </td>
                 </tr>
             }
         }
     </tbody>
 </table>
+<button @onclick="BackToList" class="btn btn-outline-primary">Back To List</button>
 
