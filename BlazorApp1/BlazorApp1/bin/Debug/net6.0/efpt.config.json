@@ -20,6 +20,14 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[EmployeeSkill]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Skill]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[EmployeeAddOrEdit]",
          "ObjectType": 1
       },

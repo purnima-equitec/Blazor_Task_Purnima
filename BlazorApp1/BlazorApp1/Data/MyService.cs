@@ -21,7 +21,7 @@ namespace BlazorApp1.Data
 
         public async Task AddEmployeeAsync(Employee employee)
         {
-            dbContext.Procedures.EmployeeAddOrEditAsync(employee.Empid, employee.Empname,employee.EmpDesignation,employee.EmpSalary,employee.EmpGender,employee.EmpEmail,employee.EmpAge,employee.EmpSkills);
+            await dbContext.Procedures.EmployeeAddOrEditAsync(employee.Empid, employee.Empname,employee.EmpDesignation,employee.EmpSalary,employee.EmpGender,employee.EmpEmail,employee.EmpAge,employee.EmpSkills);
             await dbContext.SaveChangesAsync();
         }
 
@@ -49,7 +49,7 @@ namespace BlazorApp1.Data
         }
         public async Task EditEmployeeAsync(Employee employee)
         {
-            dbContext.Procedures.EmployeeAddOrEditAsync(employee.Empid, employee.Empname, employee.EmpDesignation, employee.EmpSalary, employee.EmpGender, employee.EmpEmail, employee.EmpAge, employee.EmpSkills);
+            await dbContext.Procedures.EmployeeAddOrEditAsync(employee.Empid, employee.Empname, employee.EmpDesignation, employee.EmpSalary, employee.EmpGender, employee.EmpEmail, employee.EmpAge, employee.EmpSkills);
             await dbContext.SaveChangesAsync();
         }
 
@@ -63,6 +63,11 @@ namespace BlazorApp1.Data
         {
             await dbContext.Procedures.RestoreEmployeeAsync(emp.Empid);
             await dbContext.SaveChangesAsync();
+        }
+
+        public async Task<List<Skill>> GetSkillsAsync()
+        {
+            return await dbContext.Skills.ToListAsync();
         }
     }
 }

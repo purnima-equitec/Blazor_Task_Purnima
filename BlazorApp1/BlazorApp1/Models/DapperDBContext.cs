@@ -13,7 +13,9 @@ public partial class DapperDBContext : DbContext
     {
     }
 
-    public DbSet<Employee> Employees { get; set; }
+    public virtual DbSet<Employee> Employees { get; set; }
+
+    public virtual DbSet<Skill> Skills { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -42,6 +44,36 @@ public partial class DapperDBContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("EMPNAME");
             entity.Property(e => e.IsDeleted).HasDefaultValueSql("((0))");
+
+            entity.HasMany(d => d.Skills).WithMany(p => p.Emps)
+                .UsingEntity<Dictionary<string, object>>(
+                    "EmployeeSkill",
+                    r => r.HasOne<Skill>().WithMany()
+                        .HasForeignKey("SkillId")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("FK__EmployeeS__Skill__4CA06362"),
+                    l => l.HasOne<Employee>().WithMany()
+                        .HasForeignKey("Empid")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("FK__EmployeeS__EMPID__4BAC3F29"),
+                    j =>
+                    {
+                        j.HasKey("Empid", "SkillId").HasName("PK__Employee__7936D06388FD431C");
+                        j.ToTable("EmployeeSkill");
+                        j.IndexerProperty<int>("Empid").HasColumnName("EMPID");
+                        j.IndexerProperty<int>("SkillId").HasColumnName("SkillID");
+                    });
+        });
+
+        modelBuilder.Entity<Skill>(entity =>
+        {
+            entity.HasKey(e => e.SkillId).HasName("PK__Skill__DFA0918797435711");
+
+            entity.ToTable("Skill");
+
+            entity.Property(e => e.SkillName)
+                .IsRequired()
+                .HasMaxLength(255);
         });
 
         OnModelCreatingGeneratedProcedures(modelBuilder);
