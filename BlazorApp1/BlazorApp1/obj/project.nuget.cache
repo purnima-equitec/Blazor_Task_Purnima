@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+Y2AlkKJrxvCWu0Zol7ThRka1U5o9MgMpptdn3QYOxWQ6ixVkxTXwDRuLS6GRE0pH2bhLpeLqwH/kSL/IY5taA==",
+  "dgSpecHash": "BSAtP708ruuA3RisL2H56JUTeIlAPemDSMUvh6/N2Uo/6whbF91oKr5ntZu7hMgHAw1uLLVwnDV6MZXvd9hsTQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\owner\\Desktop\\Blazor\\Blazor_Task_Purnima\\BlazorApp1\\BlazorApp1\\BlazorApp1.csproj",
+  "projectFilePath": "C:\\Users\\owner\\Desktop\\blazor clone\\Blazor_clone_purnima\\BlazorApp1\\BlazorApp1\\BlazorApp1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\owner\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\owner\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

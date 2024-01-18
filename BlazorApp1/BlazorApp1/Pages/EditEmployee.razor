@@ -57,8 +57,14 @@
 
         <div class="form-group">
             <label for="empSkills">Skills:</label>
-            <InputText id="empSkills" class="form-control" @bind-Value="employee.EmpSkills" />
-            <ValidationMessage For="@(() => employee.EmpSkills)" />
+            @foreach (var skill in _skills)
+            {
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" @onclick="() => ToggleSkill(skill.SkillId)" />
+                    <label class="form-check-label">@skill.SkillName</label>
+                </div>
+            }
+            <ValidationMessage For="@(() => _selectedSkills)" />
         </div>
 
         <hr />

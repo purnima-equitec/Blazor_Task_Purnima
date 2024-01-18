@@ -10,25 +10,27 @@ public partial class Employee
 {
     public int Empid { get; set; }
 
-    [Required(ErrorMessage = "Employee Name is required")]
+    [Required(ErrorMessage = "Employee name is required.")]
     public string Empname { get; set; }
 
-    [Required(ErrorMessage = "Designation is required")]
+    [StringLength(50, ErrorMessage = "Designation cannot exceed 50 characters.")]
+    [Required(ErrorMessage = "Employee Designation is required.")]
     public string EmpDesignation { get; set; }
 
-    [Required(ErrorMessage = "Salary is required")]
+    [Required(ErrorMessage = "Employee Salary is required.")]
     public int? EmpSalary { get; set; }
 
     public bool? IsDeleted { get; set; }
 
-    [Required(ErrorMessage = "Gender is required")]
+    [Required(ErrorMessage = "Please select the Gender.")]
     public string EmpGender { get; set; }
 
-    [Required(ErrorMessage = "Email is required")]
-    [EmailAddress(ErrorMessage = "Invalid Email Address")]
+    [Required(ErrorMessage = "Email is required.")]
+    [EmailAddress(ErrorMessage = "Invalid email address.")]
     public string EmpEmail { get; set; }
 
-    [Required(ErrorMessage = "Age is required")]
+    [Required(ErrorMessage = "Age is required.")]
+    [Range(0, 60, ErrorMessage = "Age must be between 0 and 150.")]
     public int? EmpAge { get; set; }
 
     public string EmpSkills { get; set; }

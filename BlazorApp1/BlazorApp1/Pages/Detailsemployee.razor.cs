@@ -13,5 +13,10 @@ namespace BlazorApp1.Pages
         {
             Employee = await MyService.DetailsEmployeeAsync(Id);
         }
+
+        private async Task BackToList()
+        {
+            NavigationManager.NavigateTo("/mypage");
+        }
     }
 }

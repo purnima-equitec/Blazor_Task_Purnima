@@ -6,14 +6,14 @@
 <h3>Employee Details</h3>
 @if (Employee != null)
 {
-    <p>Employee ID: @Employee.EMPID</p>
-    <p>Employee Name: @Employee.EMPNAME</p>
-    <p>Employee Designation: @Employee.EMP_DESIGNATION</p>
-    <p>Employee Salary: @Employee.EMP_SALARY</p>
-    <p>Employee Gender: @Employee.EMP_GENDER</p>
-    <p>Employee Email: @Employee.EMP_EMAIL</p>
-    <p>Employee Age: @Employee.EMP_AGE</p>
-    <p>Employee Skills: @Employee.EMP_SKILLS</p>
+    <p><strong>Employee ID:</strong> @Employee.EMPID</p>
+    <p><strong>Employee Name:</strong> @Employee.EMPNAME</p>
+    <p><strong>Employee Designation:</strong> @Employee.EMP_DESIGNATION</p>
+    <p><strong>Employee Salary:</strong> @Employee.EMP_SALARY</p>
+    <p><strong>Employee Gender:</strong> @Employee.EMP_GENDER</p>
+    <p><strong>Employee Email:</strong> @Employee.EMP_EMAIL</p>
+    <p><strong>Employee Age:</strong> @Employee.EMP_AGE</p>
+    <button class="btn btn-success" @onclick="BackToList">Back to list</button>
 }
 else
 {

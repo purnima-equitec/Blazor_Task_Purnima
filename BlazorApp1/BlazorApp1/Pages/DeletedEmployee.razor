@@ -28,7 +28,7 @@
                     <td>@employee.EmpGender</td>
                     <td>@employee.EmpEmail</td>
                     <td>@employee.EmpAge</td>
-                    <td>@employee.EmpSkills</td>
+                    <td>@employeeDetails[employee.Empid]</td>
                     <td class="btn">
                         <button @onclick="() => RestoreEmployee(employee)" class="btn btn-outline-primary">Restore</button>                   
                     </td>

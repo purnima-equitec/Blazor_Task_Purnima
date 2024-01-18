@@ -9,7 +9,6 @@
 <table class="table">
     <thead>
         <tr>
-            @*<th>EmployeeID</th>*@
             <th>Name</th>
             <th>Designation</th>
             <th>Salary</th>
@@ -25,14 +24,14 @@
             @foreach (var employee in Employees)
             {
                 <tr>
-                    @*<td>@employee.Empid</td>*@
                     <td>@employee.Empname</td>
                     <td>@employee.EmpDesignation</td>
                     <td>@employee.EmpSalary</td>
                     <td>@employee.EmpGender</td>
                     <td>@employee.EmpEmail</td>
                     <td>@employee.EmpAge</td>
-                    <td>@employee.EmpSkills</td>
+                    <td>@employeeDetails[employee.Empid]</td>
+                    
                     <td class="btn-group">
                         <button @onclick="() => EditClick(employee.Empid)" class="btn  btn-outline-primary">Edit</button>
                         <button @onclick="() => NavigateToDetailsEmployee(employee.Empid)" class="btn  btn-outline-primary">Display</button>
