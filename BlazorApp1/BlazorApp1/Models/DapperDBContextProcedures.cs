@@ -38,6 +38,7 @@ namespace BlazorApp1.Models
             modelBuilder.Entity<EmployeeViewByIDResult>().HasNoKey().ToView(null);
             modelBuilder.Entity<GetAllDeletedEmployeesResult>().HasNoKey().ToView(null);
             modelBuilder.Entity<GetEmployeeDetailsResult>().HasNoKey().ToView(null);
+            modelBuilder.Entity<GetSkillsByEmployeeIdResult>().HasNoKey().ToView(null);
         }
     }
 
@@ -261,6 +262,32 @@ namespace BlazorApp1.Models
                 parameterreturnValue,
             };
             var _ = await _context.SqlQueryAsync<GetEmployeeDetailsResult>("EXEC @returnValue = [dbo].[GetEmployeeDetails]", sqlParameters, cancellationToken);
+
+            returnValue?.SetValue(parameterreturnValue.Value);
+
+            return _;
+        }
+
+        public virtual async Task<List<GetSkillsByEmployeeIdResult>> GetSkillsByEmployeeIdAsync(int? EmployeeId, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        {
+            var parameterreturnValue = new SqlParameter
+            {
+                ParameterName = "returnValue",
+                Direction = System.Data.ParameterDirection.Output,
+                SqlDbType = System.Data.SqlDbType.Int,
+            };
+
+            var sqlParameters = new []
+            {
+                new SqlParameter
+                {
+                    ParameterName = "EmployeeId",
+                    Value = EmployeeId ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Int,
+                },
+                parameterreturnValue,
+            };
+            var _ = await _context.SqlQueryAsync<GetSkillsByEmployeeIdResult>("EXEC @returnValue = [dbo].[GetSkillsByEmployeeId] @EmployeeId", sqlParameters, cancellationToken);
 
             returnValue?.SetValue(parameterreturnValue.Value);
 

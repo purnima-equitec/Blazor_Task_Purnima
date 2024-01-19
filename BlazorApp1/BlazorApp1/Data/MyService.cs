@@ -90,5 +90,16 @@ namespace BlazorApp1.Data
                return await dbContext.Procedures.UpdateEmployeeSkillAsync(employeeId, skillIds, action);
         }
 
+        public async Task<List<Skill>> GetEmployeeSkillByID(int Empid)
+        {
+            var skillsResult = await dbContext.Procedures.GetSkillsByEmployeeIdAsync(Empid);
+            var skills = skillsResult.Select(result => new Skill
+            { 
+                SkillId = result.SkillId,
+                SkillName = result.SkillName,
+            }).ToList();
+
+            return skills;
+        }
     }
 }

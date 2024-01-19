@@ -16,5 +16,7 @@ namespace BlazorApp1.Models
         public string EMP_EMAIL { get; set; }
         public int? EMP_AGE { get; set; }
         public string EMP_SKILLS { get; set; }
+        public int? SkillId { get; set; }
+        public string SkillName { get; set; }
     }
 }

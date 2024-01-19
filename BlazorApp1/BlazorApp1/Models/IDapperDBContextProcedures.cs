@@ -19,6 +19,7 @@ namespace BlazorApp1.Models
         Task<List<EmployeeViewByIDResult>> EmployeeViewByIDAsync(int? EMPID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<GetAllDeletedEmployeesResult>> GetAllDeletedEmployeesAsync(OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<GetEmployeeDetailsResult>> GetEmployeeDetailsAsync(OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<List<GetSkillsByEmployeeIdResult>> GetSkillsByEmployeeIdAsync(int? EmployeeId, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> RestoreEmployeeAsync(int? EMPID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> UpdateEmployeeSkillAsync(int? EmployeeId, int? SkillId, string Action, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> UpdateEmployeeSkillsAsync(int? EmployeeId, string SkillIds, string ActionType, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
