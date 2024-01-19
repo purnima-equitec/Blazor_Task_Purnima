@@ -1,0 +1,25 @@
+﻿@page "/confirmdelete/{id:int}"
+@using BlazorApp1.Models
+@inject BlazorApp1.Data.MyService MyService
+@inject Microsoft.JSInterop.IJSRuntime JSRuntime
+@inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager
+
+<h3>Details to Delete</h3>
+@if (Employee != null)
+{
+    <p><strong>Employee ID:</strong> @Employee.EMPID</p>
+    <p><strong>Employee Name:</strong> @Employee.EMPNAME</p>
+    <p><strong>Employee Designation:</strong> @Employee.EMP_DESIGNATION</p>
+    <p><strong>Employee Salary:</strong> @Employee.EMP_SALARY</p>
+    <p><strong>Employee Gender:</strong> @Employee.EMP_GENDER</p>
+    <p><strong>Employee Email:</strong> @Employee.EMP_EMAIL</p>
+    <p><strong>Employee Age:</strong> @Employee.EMP_AGE</p>
+    <p><strong>Employee Skills:</strong> @skillname</p>
+    <button class="btn btn-success" @onclick="() => PerformDeleteEmployee(Employee.EMPID)">Delete</button>
+    <button class="btn btn-success" @onclick="BackToList">Cancel</button>
+}
+else
+{
+    <p>No employee details found.</p>
+}
+

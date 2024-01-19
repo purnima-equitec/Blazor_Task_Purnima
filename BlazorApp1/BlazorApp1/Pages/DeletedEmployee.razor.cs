@@ -1,4 +1,5 @@
 ﻿using BlazorApp1.Models;
+using Microsoft.JSInterop;
 
 namespace BlazorApp1.Pages
 {
@@ -33,9 +34,10 @@ namespace BlazorApp1.Pages
         private async Task RestoreEmployee(Employee employee)
         {
             await MyService.RestoreEmployeeAsync(employee);
-            
-        }
+            await JSRuntime.InvokeVoidAsync("alert", "Employee restored successfully!");
+            NavigationManager.NavigateTo("/mypage");
 
+        }
         private async Task BackToList()
         {
             NavigationManager.NavigateTo("/mypage");

@@ -3,7 +3,9 @@
 @inject BlazorApp1.Data.MyService MyService
 @inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager
 
-<h3>Employee Details</h3>
+<h1 class="colorBlue">
+    View Employee details
+</h1>
 @if (Employee != null)
 {
     <p><strong>Employee ID:</strong> @Employee.EMPID</p>
@@ -13,7 +15,7 @@
     <p><strong>Employee Gender:</strong> @Employee.EMP_GENDER</p>
     <p><strong>Employee Email:</strong> @Employee.EMP_EMAIL</p>
     <p><strong>Employee Age:</strong> @Employee.EMP_AGE</p>
-    <p><strong>Employee Age:</strong> @skillname</p>
+    <p><strong>Employee Skills:</strong> @skillname</p>
     <button class="btn btn-success" @onclick="BackToList">Back to list</button>
 }
 else
@@ -21,3 +23,68 @@ else
     <p>No employee details found.</p>
 }
 
+@*<EditForm Model="@Employee">
+    <ul class="row forumBox">
+        <li class="col-3">
+            <label class="inputLabel">Employee ID:</label>
+        </li>
+        <li class="col-3">
+            <div class="form_inputBox">
+                <InputNumber @bind-Value="Employee.EMPID" class="form-control" disabled="disabled" />
+            </div>
+        </li>
+        <li class="col-3">
+            <label class="inputLabel">Employee Name</label>
+        </li>
+        <li class="col-3">
+            <div class="form_inputBox">
+                <InputText @bind-Value="Employee.EMPNAME" class="form-control" disabled="disabled" />
+            </div>
+        </li>
+        <li class="col-3">
+            <label class="inputLabel">Employee Designation:</label>
+        </li>
+        <li class="col-3">
+            <div class="form_inputBox">
+                <InputText @bind-Value="Employee.EMP_DESIGNATION" class="form-control" disabled="disabled" />
+            </div>
+        </li>
+        <li class="col-3">
+            <label class="inputLabel">Employee salary:</label>
+        </li>
+        <li class="col-3">
+            <div class="form_inputBox">
+                <InputNumber @bind-Value="Employee.EMP_SALARY" class="form-control" disabled="disabled" />
+            </div>
+        </li>
+        <li class="col-3">
+            <label class="inputLabel">Employee Email:</label>
+        </li>
+        <li class="col-3">
+            <div class="form_inputBox">
+                <InputNumber @bind-Value="Employee.EMP_EMAIL" class="form-control" disabled="disabled" />
+            </div>
+        </li>
+        <li class="col-3">
+            <label class="inputLabel">Employee Age:</label>
+        </li>
+        <li class="col-3">
+            <div class="form_inputBox">
+                <InputNumber @bind-Value="Employee.EMP_AGE" class="form-control" disabled="disabled" />
+            </div>
+        </li>
+        <li class="col-3">
+            <label class="inputLabel">Employee Skills:</label>
+        </li>
+        <li class="col-3">
+            <div class="form_inputBox">
+                <InputText @bind-Value="@skillname" class="form-control" disabled="disabled" />
+            </div>
+        </li>
+        <li class="col-12 mt_20">
+            <div class="form_btns">
+                <button type="button" class="common_btn btnBlue" @onclick="BackToList">Back To List</button>
+            </div>
+        </li>
+    </ul>*@
+ @*//</EditForm>*@

@@ -20,12 +20,20 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/owner/Desktop/Blazor/Blazor_Task_Purnima/BlazorApp1/BlazorApp1/Pages/ConfirmDelete.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29uZmlybURlbGV0ZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/owner/Desktop/Blazor/Blazor_Task_Purnima/BlazorApp1/BlazorApp1/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/owner/Desktop/Blazor/Blazor_Task_Purnima/BlazorApp1/BlazorApp1/Pages/DeletedEmployee.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVsZXRlZEVtcGxveWVlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/owner/Desktop/Blazor/Blazor_Task_Purnima/BlazorApp1/BlazorApp1/Pages/DeleteEmployee.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVsZXRlRW1wbG95ZWUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/owner/Desktop/Blazor/Blazor_Task_Purnima/BlazorApp1/BlazorApp1/Pages/Detailsemployee.razor]
@@ -50,6 +58,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/owner/Desktop/Blazor/Blazor_Task_Purnima/BlazorApp1/BlazorApp1/Pages/MyPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXlQYWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/owner/Desktop/Blazor/Blazor_Task_Purnima/BlazorApp1/BlazorApp1/Pages/UpdateEmployee.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXBkYXRlRW1wbG95ZWUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/owner/Desktop/Blazor/Blazor_Task_Purnima/BlazorApp1/BlazorApp1/Shared/NavLinkGroup.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdkxpbmtHcm91cC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/owner/Desktop/Blazor/Blazor_Task_Purnima/BlazorApp1/BlazorApp1/Shared/SurveyPrompt.razor]

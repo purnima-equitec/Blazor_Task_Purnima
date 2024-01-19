@@ -6,12 +6,14 @@
 @using Microsoft.AspNetCore.Components.Forms
 @using System.ComponentModel.DataAnnotations
 
-<h3>Edit Employee</h3>
+<h1 class="colorBlue">
+    Modify Employee Data
+</h1>
 <div class="form-container">
     <EditForm Model="@employee" OnValidSubmit="EditEmployeeData">
         <DataAnnotationsValidator />
 
-        <div class="form-group">
+        @*<div class="form-group">
             <label for="empName">Employee Name:</label>
             <InputText id="empName" class="form-control" @bind-Value="employee.Empname" />
             <ValidationMessage For="@(() => employee.Empname)" />
@@ -60,7 +62,7 @@
             @foreach (var skill in _skills)
             {
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input" @onclick="() => ToggleSkill(skill.SkillId)" />
+                    <input type="checkbox" class="form-check-input" @onclick="() => ToggleSkill(skill.SkillId)"/>
                     <label class="form-check-label">@skill.SkillName</label>
                 </div>
             }
@@ -70,6 +72,104 @@
         <hr />
         <div class="form-group">
             <button type="submit" class="btn btn-success">Save</button>
-        </div>
+            <button @onclick="NotEdited" type="submit" class="btn btn-success">Back To List</button>
+        </div>*@
+        <ul class="row forumBox">
+            <li class="col-3 required">
+                <label class="inputLabel">Employee Name:</label>
+            </li>
+            <li class="col-3">
+                <div class="form_inputBox">
+                    <InputText @bind-Value="employee.Empname" class="form-control" maxlength="100" />
+                </div>
+                <div class="erroeText">
+                    <ValidationMessage For="@(() => employee.Empname)"></ValidationMessage>
+                </div>
+            </li>
+            <li class="col-3 required">
+                <label class="inputLabel">Employee Designation:</label>
+            </li>
+            <li class="col-3">
+                <div class="form_inputBox">
+                    <InputText @bind-Value="employee.EmpDesignation" class="form-control" maxlength="100" />
+                </div>
+                <div class="erroeText">
+                    <ValidationMessage For="@(() => employee.EmpDesignation)"></ValidationMessage>
+                </div>
+            </li>
+            <li class="col-3 required">
+                <label class="inputLabel">Employee Salary:</label>
+            </li>
+            <li class="col-3">
+                <div class="form_inputBox">
+                    <InputNumber @bind-Value="employee.EmpSalary" class="form-control" maxlength="100" />
+                </div>
+                <div class="erroeText">
+                    <ValidationMessage For="@(() => employee.EmpSalary)"></ValidationMessage>
+                </div>
+            </li>
+            <li class="col-3 required">
+                <label class="inputLabel">Employee Gender:</label>
+            </li>
+            <li class="col-3">
+                <div class="radio-group">
+                    <InputRadioGroup @bind-Value="employee.EmpGender">
+                        <InputRadio TValue="string" id="maleRadio" value="Male" />
+                        <label for="maleRadio">Male</label>
+
+                        <InputRadio TValue="string" id="femaleRadio" value="Female" />
+                        <label for="femaleRadio">Female</label>
+                    </InputRadioGroup>
+                </div>
+                <div class="erroeText">
+                    <ValidationMessage For="@(() => employee.EmpGender)" />
+                </div>
+            </li>
+            <li class="col-3 required">
+                <label class="inputLabel">Employee Email:</label>
+            </li>
+            <li class="col-3">
+                <div class="form_inputBox">
+                    <InputText @bind-Value="employee.EmpEmail" class="form-control" maxlength="100" />
+                </div>
+                <div class="erroeText">
+                    <ValidationMessage For="@(() => employee.EmpEmail)"></ValidationMessage>
+                </div>
+            </li>
+            <li class="col-3 required">
+                <label class="inputLabel">Employee Age:</label>
+            </li>
+            <li class="col-3">
+                <div class="form_inputBox">
+                    <InputNumber @bind-Value="employee.EmpAge" class="form-control" maxlength="100" />
+                </div>
+                <div class="erroeText">
+                    <ValidationMessage For="@(() => employee.EmpAge)"></ValidationMessage>
+                </div>
+            </li>
+            <li class="col-3 required">
+                <label class="inputLabel">Employee Skills:</label>
+            </li>
+            <li class="col-3">
+                <div class="form_inputBox">
+                    @foreach (var skill in _skills)
+                    {
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" @onclick="() => ToggleSkill(skill.SkillId)" />
+                            <label class="form-check-label">@skill.SkillName</label>
+                        </div>
+                    }
+                </div>
+                <div class="erroeText">
+                    <ValidationMessage For="@(() => _selectedSkills)"></ValidationMessage>
+                </div>
+            </li>
+            <li class="col-12 mt_20">
+                <div class="form_btns">
+                    <button type="submit" class="common_btn btnBlue">Save</button>
+                    <button type="button" class="common_btn btnGry" @onclick="NotEdited">Back To List</button>
+                </div>
+            </li>
+        </ul>
     </EditForm>
 </div>

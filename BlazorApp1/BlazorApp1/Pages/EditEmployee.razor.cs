@@ -10,14 +10,14 @@ namespace BlazorApp1.Pages
         private List<int> _selectedSkills = new List<int>();
         [Parameter]
         public int Id { get; set; }
-        protected override async  Task OnInitializedAsync()
+        protected override async Task OnInitializedAsync()
         {
             employee = await MyService.GetEmployeeByIdAsync(Id);
             _skills = await MyService.GetSkillsAsync();
             _selectedSkills = employee.Skills.Select(skill => skill.SkillId).ToList();
         }
 
-        private async  Task EditEmployeeData()
+        private async Task EditEmployeeData()
         {
             await MyService.EditEmployeeAsync(employee);
             int employeeId = employee.Empid;
@@ -33,8 +33,7 @@ namespace BlazorApp1.Pages
                     Console.WriteLine($"Error updating skill {skillId} for employee {employeeId}: {ex.Message}");
                 }
             }
-
-            NavigationManager.NavigateTo("/mypage");
+            NavigationManager.NavigateTo("/updateemployee");
         }
 
         private void ToggleSkill(int skillId)
@@ -52,7 +51,12 @@ namespace BlazorApp1.Pages
 
         private bool IsSkillSelected(int skillId)
         {
-            return employee.Skills != null && employee.Skills.Any(s => s.SkillId == skillId);
+            return _selectedSkills.Contains(skillId);
+        }
+
+        private async Task NotEdited()
+        {
+            NavigationManager.NavigateTo("/updateemployee");
         }
     }
 }

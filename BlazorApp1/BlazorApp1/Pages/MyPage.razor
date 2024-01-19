@@ -3,9 +3,11 @@
 @inject BlazorApp1.Data.MyService MyService
 @inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager
 
-<h3>My Page</h3>
-<button @onclick="NavigateToInsertEmployee" class="btn btn-success">Add Employee</button>
-<button @onclick="NavigateToDeletedEmployee" class="btn btn-success">Deleted Employee</button>
+<h1 class="colorBlue">
+    View Employee Details
+</h1>
+@*<button @onclick="NavigateToInsertEmployee" class="btn btn-success">Add Employee</button>*@
+@*<button @onclick="NavigateToDeletedEmployee" class="btn btn-success">Deleted Employee</button>*@
 <table class="table">
     <thead>
         <tr>
@@ -33,9 +35,9 @@
                     <td>@employeeDetails[employee.Empid]</td>
                     
                     <td class="btn-group">
-                        <button @onclick="() => EditClick(employee.Empid)" class="btn  btn-outline-primary">Edit</button>
+                        @*<button @onclick="() => EditClick(employee.Empid)" class="btn  btn-outline-primary">Edit</button>*@
                         <button @onclick="() => NavigateToDetailsEmployee(employee.Empid)" class="btn  btn-outline-primary">Display</button>
-                        <button @onclick="() => DeleteEmployee(employee.Empid)" class="btn btn-outline-primary">Delete</button>
+                        @*<button @onclick="() => DeleteEmployee(employee.Empid)" class="btn btn-outline-primary">Delete</button>*@
                     </td>
                 </tr>
             }

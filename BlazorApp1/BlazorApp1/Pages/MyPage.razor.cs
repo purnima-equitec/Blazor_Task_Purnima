@@ -36,7 +36,7 @@ namespace BlazorApp1.Pages
             NavigationManager.NavigateTo("/insertemployee");
         }
 
-        private async Task DeleteEmployee(int empId)
+        /*private async Task DeleteEmployee(int empId)
         {
             try
             {
@@ -54,7 +54,7 @@ namespace BlazorApp1.Pages
             {
                 Console.WriteLine($"Error deleting employee: {ex.Message}");
             }
-        }
+        }*/
 
         private void NavigateToDetailsEmployee(int empId)
         {
