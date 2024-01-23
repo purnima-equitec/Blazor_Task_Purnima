@@ -9,51 +9,38 @@
 
 <div class="@(collapseNavMenu ? "collapse" : "")" @onclick="ToggleNavMenu">
     <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
-            </NavLink>
-        </div>
-        <div class="sidebar_list my-scrollbar nav-item px-3">
-            <div class="leftBox">
-                <div class="color_white bg_accent sidebar_dropdown has_list nav-item px-3" style="color:white; text-align: center; cursor:pointer">
-                    <span class="oi oi-person" aria-hidden="true"></span> EmployeeData
-                </div>
-                <div class="hidden_list" style="display: @(collapseNavMenu ? "none" : "block")">
-                    <div class="nav-item px-3">
-                        <NavLink class="nav-link" href="insertemployee" style="color:black; text-align: center;">
-                            <span class="oi oi-list-rich" aria-hidden="true"></span> ADD
-                        </NavLink>
+        <div>
+            <div class="sidebar_list my-scrollbar nav-item px-3">
+                <div class="leftBox">
+                    <div class="color_white bg_accent sidebar_dropdown has_list nav-item px-3" style="color:white; text-align: center; cursor:pointer">
+                        <span class="oi oi-person" aria-hidden="true"></span> EmployeeData
                     </div>
-                    <div class="nav-item px-3">
-                        <NavLink class="nav-link" href="updateemployee" style="color:black; text-align: center;">
-                            <span class="oi oi-list-rich" aria-hidden="true"></span> UPDATE
-                        </NavLink>
-                    </div>
-                    <div class="nav-item px-3">
-                        <NavLink class="nav-link" href="deleteemployee" style="color:black; text-align: center;">
-                            <span class="oi oi-list-rich" aria-hidden="true"></span> DELETE
-                        </NavLink>
-                    </div>
-                    <div class="nav-item px-3">
-                        <NavLink class="nav-link" href="mypage" style="color:black; text-align: center;">
-                            <span class="oi oi-list-rich" aria-hidden="true"></span> VIEW
-                        </NavLink>
-                    </div>
-                    <div class="nav-item px-3">
-                        <NavLink class="nav-link" href="deletedemployee" style="color:black; text-align: center;">
-                            <span class="oi oi-list-rich" aria-hidden="true"></span> RESTORE
-                        </NavLink>
+                    <div class="hidden_list" style="display: @(collapseNavMenu ? "none" : "block")">
+                        <div class="nav-item px-3">
+                            <NavLink class="nav-link" href="insertemployee">
+                                <span class="oi oi-list-rich" aria-hidden="true"></span> ADD
+                            </NavLink>
+                        </div>
+                        <div class="nav-item px-3">
+                            <NavLink class="nav-link" href="updateemployee">
+                                <span class="oi oi-list-rich" aria-hidden="true"></span> UPDATE
+                            </NavLink>
+                        </div>
+                        <div class="nav-item px-3">
+                            <NavLink class="nav-link" href="deleteemployee">
+                                <span class="oi oi-list-rich" aria-hidden="true"></span> DELETE
+                            </NavLink>
+                        </div>
+                        <div class="nav-item px-3">
+                            <NavLink class="nav-link" href="mypage">
+                                <span class="oi oi-list-rich" aria-hidden="true"></span> VIEW
+                            </NavLink>
+                        </div>
+                        <div class="nav-item px-3">
+                            <NavLink class="nav-link" href="deletedemployee">
+                                <span class="oi oi-list-rich" aria-hidden="true"></span> RESTORE
+                            </NavLink>
+                        </div>
                     </div>
                 </div>
             </div>

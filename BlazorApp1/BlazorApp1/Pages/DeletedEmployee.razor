@@ -4,39 +4,45 @@
 @inject Microsoft.JSInterop.IJSRuntime JSRuntime
 @inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager
 
-<h3>DeletedEmployee</h3>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Designation</th>
-            <th>Salary</th>
-            <th>Gender</th>
-            <th>Email</th>
-            <th>Age</th>
-            <th>Skills</th>
-        </tr>
-    </thead>
-    <tbody>
-        @if (Employees != null)
-        {
-            @foreach (var employee in Employees)
+<h3 class="popup_title">DeletedEmployee</h3>
+<div class="table_detailsemply performance_table" >
+    <div class="employee_table" style="margin-top: 10px;">
+        <table width="100%" class="performance_table_scroll">
+        <thead>
+            <tr>
+                <th class="color_title">Name</th>
+                <th class="color_title">Designation</th>
+                <th width="15%" class="color_title">Salary</th>
+                <th class="color_title">Gender</th>
+                <th width="20%" class="color_title">Email</th>
+                <th width="20%" class="color_title">Age</th>
+                <th width="60%" class="color_title">Skills</th>
+                <th width="20%" class="color_title"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Employees != null)
             {
-                <tr>
-                    <td>@employee.Empname</td>
-                    <td>@employee.EmpDesignation</td>
-                    <td>@employee.EmpSalary</td>
-                    <td>@employee.EmpGender</td>
-                    <td>@employee.EmpEmail</td>
-                    <td>@employee.EmpAge</td>
-                    <td>@employeeDetails[employee.Empid]</td>
-                    <td class="btn">
-                        <button @onclick="() => RestoreEmployee(employee)" class="btn btn-outline-primary">Restore</button>                   
-                    </td>
-                </tr>
+                @foreach (var employee in Employees)
+                {
+                    <tr @onclick="() => ConfirmRestore(employee.Empid)">
+                        <td class="color_title">@employee.Empname</td>
+                        <td class="color_title">@employee.EmpDesignation</td>
+                        <td width="15%" class="color_title">@employee.EmpSalary</td>
+                        <td class="color_title">@employee.EmpGender</td>
+                        <td width="20%" class="color_title">@employee.EmpEmail</td>
+                        <td width="20%" class="color_title">@employee.EmpAge</td>
+                        <td width="60%" class="color_title">@employeeDetails[employee.Empid]</td>
+                        <td class="btn">
+                                <button class="common_btn btnBlue">Restore</button>
+                        </td>
+                    </tr>
+                }
             }
-        }
-    </tbody>
-</table>
-<button @onclick="BackToList" class="btn btn-outline-primary">Back To List</button>
+        </tbody>
+    </table>
+</div>
+</div>
+@*<button @onclick="BackToList" class="btn btn-outline-primary">Back To List</button>*@
+<button type="button" class="common_btn btnGry" @onclick="BackToList">Back To List</button>
 

@@ -11,10 +11,15 @@ namespace BlazorApp1.Pages
         [Parameter]
         public int Id { get; set; }
         protected override async Task OnInitializedAsync()
-        {
-            employee = await MyService.GetEmployeeByIdAsync(Id);
+        {           
+            List<BlazorApp1.Models.Skill> employeeSkills = await MyService.GetEmployeeSkillByID(Id);
+            if (employee.Skills != null)
+            {
+                _selectedSkills = employeeSkills.Select(skill => skill.SkillId).ToList();
+            }
             _skills = await MyService.GetSkillsAsync();
-            _selectedSkills = employee.Skills.Select(skill => skill.SkillId).ToList();
+            employee = await MyService.GetEmployeeByIdAsync(Id);
+            await MyService.RemoveSkillsForEmployeeAsync(employee.Empid);
         }
 
         private async Task EditEmployeeData()

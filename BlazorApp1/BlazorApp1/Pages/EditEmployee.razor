@@ -7,73 +7,11 @@
 @using System.ComponentModel.DataAnnotations
 
 <h1 class="colorBlue">
-    Modify Employee Data
+    Update Employee Data
 </h1>
 <div class="form-container">
     <EditForm Model="@employee" OnValidSubmit="EditEmployeeData">
         <DataAnnotationsValidator />
-
-        @*<div class="form-group">
-            <label for="empName">Employee Name:</label>
-            <InputText id="empName" class="form-control" @bind-Value="employee.Empname" />
-            <ValidationMessage For="@(() => employee.Empname)" />
-        </div>
-
-        <div class="form-group">
-            <label for="empDesignation">Designation:</label>
-            <InputText id="empDesignation" class="form-control" @bind-Value="employee.EmpDesignation" />
-            <ValidationMessage For="@(() => employee.EmpDesignation)" />
-        </div>
-
-        <div class="form-group">
-            <label for="empSalary">Salary:</label>
-            <InputNumber id="empSalary" class="form-control" @bind-Value="employee.EmpSalary" />
-            <ValidationMessage For="@(() => employee.EmpSalary)" />
-        </div>
-
-        <div class="form-group">
-            <label>Gender:</label>
-            <div class="radio-group">
-                <InputRadioGroup @bind-Value="employee.EmpGender">
-                    <InputRadio TValue="string" id="maleRadio" value="Male" />
-                    <label for="maleRadio">Male</label>
-
-                    <InputRadio TValue="string" id="femaleRadio" value="Female" />
-                    <label for="femaleRadio">Female</label>
-                </InputRadioGroup>
-                <ValidationMessage For="@(() => employee.EmpGender)" />
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="empEmail">Email:</label>
-            <InputText id="empEmail" class="form-control" @bind-Value="employee.EmpEmail" />
-            <ValidationMessage For="@(() => employee.EmpEmail)" />
-        </div>
-
-        <div class="form-group">
-            <label for="empAge">Age:</label>
-            <InputNumber id="empAge" class="form-control" @bind-Value="employee.EmpAge" />
-            <ValidationMessage For="@(() => employee.EmpAge)" />
-        </div>
-
-        <div class="form-group">
-            <label for="empSkills">Skills:</label>
-            @foreach (var skill in _skills)
-            {
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" @onclick="() => ToggleSkill(skill.SkillId)"/>
-                    <label class="form-check-label">@skill.SkillName</label>
-                </div>
-            }
-            <ValidationMessage For="@(() => _selectedSkills)" />
-        </div>
-
-        <hr />
-        <div class="form-group">
-            <button type="submit" class="btn btn-success">Save</button>
-            <button @onclick="NotEdited" type="submit" class="btn btn-success">Back To List</button>
-        </div>*@
         <ul class="row forumBox">
             <li class="col-3 required">
                 <label class="inputLabel">Employee Name:</label>
@@ -155,7 +93,7 @@
                     @foreach (var skill in _skills)
                     {
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" @onclick="() => ToggleSkill(skill.SkillId)" />
+                            <input type="checkbox" class="form-check-input" @onclick="() => ToggleSkill(skill.SkillId)" checked="@IsSkillSelected(skill.SkillId)" />
                             <label class="form-check-label">@skill.SkillName</label>
                         </div>
                     }

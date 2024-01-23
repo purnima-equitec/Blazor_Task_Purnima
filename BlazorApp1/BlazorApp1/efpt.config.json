@@ -60,6 +60,10 @@
          "ObjectType": 1
       },
       {
+         "Name": "[dbo].[RemoveSkillsForEmployee]",
+         "ObjectType": 1
+      },
+      {
          "Name": "[dbo].[RestoreEmployee]",
          "ObjectType": 1
       },

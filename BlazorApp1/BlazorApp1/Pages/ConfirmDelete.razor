@@ -7,19 +7,70 @@
 <h3>Details to Delete</h3>
 @if (Employee != null)
 {
-    <p><strong>Employee ID:</strong> @Employee.EMPID</p>
-    <p><strong>Employee Name:</strong> @Employee.EMPNAME</p>
-    <p><strong>Employee Designation:</strong> @Employee.EMP_DESIGNATION</p>
-    <p><strong>Employee Salary:</strong> @Employee.EMP_SALARY</p>
-    <p><strong>Employee Gender:</strong> @Employee.EMP_GENDER</p>
-    <p><strong>Employee Email:</strong> @Employee.EMP_EMAIL</p>
-    <p><strong>Employee Age:</strong> @Employee.EMP_AGE</p>
-    <p><strong>Employee Skills:</strong> @skillname</p>
-    <button class="btn btn-success" @onclick="() => PerformDeleteEmployee(Employee.EMPID)">Delete</button>
-    <button class="btn btn-success" @onclick="BackToList">Cancel</button>
+    <EditForm Model="@Employee">
+        <ul class="row forumBox">
+            <li class="col-3">
+                <label class="inputLabel">Employee ID:</label>
+            </li>
+            <li class="col-3">
+                <div class="form_inputBox">
+                    <InputNumber @bind-Value="Employee.EMPID" class="form-control" disabled="disabled" />
+                </div>
+            </li>
+            <li class="col-3">
+                <label class="inputLabel">Employee Name</label>
+            </li>
+            <li class="col-3">
+                <div class="form_inputBox">
+                    <InputText @bind-Value="Employee.EMPNAME" class="form-control" disabled="disabled" />
+                </div>
+            </li>
+            <li class="col-3">
+                <label class="inputLabel">Employee Designation:</label>
+            </li>
+            <li class="col-3">
+                <div class="form_inputBox">
+                    <InputText @bind-Value="Employee.EMP_DESIGNATION" class="form-control" disabled="disabled" />
+                </div>
+            </li>
+            <li class="col-3">
+                <label class="inputLabel">Employee salary:</label>
+            </li>
+            <li class="col-3">
+                <div class="form_inputBox">
+                    <InputNumber @bind-Value="Employee.EMP_SALARY" class="form-control" disabled="disabled" />
+                </div>
+            </li>
+            <li class="col-3">
+                <label class="inputLabel">Employee Email:</label>
+            </li>
+            <li class="col-3">
+                <div class="form_inputBox">
+                    <InputText @bind-Value="Employee.EMP_EMAIL" class="form-control" disabled="disabled" />
+                </div>
+            </li>
+            <li class="col-3">
+                <label class="inputLabel">Employee Age:</label>
+            </li>
+            <li class="col-3">
+                <div class="form_inputBox">
+                    <InputNumber @bind-Value="Employee.EMP_AGE" class="form-control" disabled="disabled" />
+                </div>
+            </li>
+            <li class="col-3">
+                <label class="inputLabel">Employee Skills:</label>
+            </li>
+            <li class="col-3">
+                <div class="form_inputBox">
+                    <InputText @bind-Value="@skillname" class="form-control" disabled="disabled" />
+                </div>
+            </li>
+            <li class="col-12 mt_20">
+                <div class="form_btns">
+                    <button type="button" class="common_btn btnBlue" @onclick="() => PerformDeleteEmployee(Employee.EMPID)">Delete</button>
+                    <button type="button" class="common_btn btnBlue" @onclick="BackToList">Cancel</button>
+                </div>
+            </li>
+        </ul>
+    </EditForm>
 }
-else
-{
-    <p>No employee details found.</p>
-}
-

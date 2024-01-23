@@ -1,12 +1,11 @@
-﻿@page "/detailsemployee/{id:int}"
+﻿@page "/restore/{id:int}"
 @using BlazorApp1.Models
 @inject BlazorApp1.Data.MyService MyService
+@inject Microsoft.JSInterop.IJSRuntime JSRuntime
 @inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager
 
-<h1 class="colorBlue">
-    View Employee details
-</h1>
-@if(Employee != null)
+<h3>Details to Delete</h3>
+@if (Employee != null)
 {
     <EditForm Model="@Employee">
         <ul class="row forumBox">
@@ -68,9 +67,11 @@
             </li>
             <li class="col-12 mt_20">
                 <div class="form_btns">
-                    <button type="button" class="common_btn btnBlue" @onclick="BackToList">Back To List</button>
+                    <button type="button" class="common_btn btnBlue" @onclick="() => RestoreEmployee(Employee)">Restore</button>
+                    <button type="button" class="common_btn btnBlue" @onclick="BackToList">Cancel</button>
                 </div>
             </li>
         </ul>
     </EditForm>
 }
+

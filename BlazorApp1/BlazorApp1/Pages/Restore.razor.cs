@@ -1,23 +1,24 @@
-﻿ using BlazorApp1.Models;
+﻿using BlazorApp1.Models;
 using Microsoft.AspNetCore.Components;
-
+using Microsoft.JSInterop;
 namespace BlazorApp1.Pages
 {
-    public partial class Detailsemployee
+    public partial class Restore
     {
-        [Parameter] 
+        [Parameter]
         public int Id { get; set; }
         private EmployeeViewByIDResult? Employee { get; set; }
         private List<EmployeeViewByIDResult> user = new List<EmployeeViewByIDResult>();//
         private EmployeeViewByIDResult newUser = new EmployeeViewByIDResult();//
         private List<Skill> skills = new List<Skill>();//
         private string? skillname;
+        private List<Employee>? Employees;
 
-        protected override async Task OnInitializedAsync()  
+        protected override async Task OnInitializedAsync()
         {
             Employee = await MyService.DetailsEmployeeAsync(Id);
             skills = await MyService.GetEmployeeSkillByID(Id);//
-            if (skills != null && skills.Any()) 
+            if (skills != null && skills.Any())
             {
                 foreach (var skill in skills)
                 {
@@ -27,7 +28,7 @@ namespace BlazorApp1.Pages
             }
             else
             {
-                skillname = "No skills available"; 
+                skillname = "No skills available";
             }
 
             foreach (var item in user)
@@ -35,10 +36,17 @@ namespace BlazorApp1.Pages
                 newUser = item;
             }
         }
+        private async Task RestoreEmployee(EmployeeViewByIDResult employee)
+        {
+            await MyService.RestoreEmployeeAsync(employee);
+            await JSRuntime.InvokeVoidAsync("confirm", "Employee restored successfully!");
+            NavigationManager.NavigateTo("/deletedemployee");
 
+        }
         private async Task BackToList()
         {
-            NavigationManager.NavigateTo("/mypage");
+            NavigationManager.NavigateTo("/deletedemployee");
         }
     }
 }
+

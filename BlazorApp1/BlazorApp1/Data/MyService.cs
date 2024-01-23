@@ -60,9 +60,9 @@ namespace BlazorApp1.Data
             return emp ?? new List<Employee>();
         }
 
-        public async Task RestoreEmployeeAsync(Employee emp)
+        public async Task RestoreEmployeeAsync(EmployeeViewByIDResult emp)
         {
-            await dbContext.Procedures.RestoreEmployeeAsync(emp.Empid);
+            await dbContext.Procedures.RestoreEmployeeAsync(emp.EMPID);
             await dbContext.SaveChangesAsync();
         }
 
@@ -101,5 +101,11 @@ namespace BlazorApp1.Data
 
             return skills;
         }
+        public async Task<int> RemoveSkillsForEmployeeAsync(int empId)
+        {
+            var result = await dbContext.Procedures.RemoveSkillsForEmployeeAsync(empId);
+            return result;
+        }
+
     }
 }
